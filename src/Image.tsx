@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 /** @jsxImportSource @emotion/react */
 
-import { css } from "@emotion/react";
+import { css } from '@emotion/react'
 
-type ImgElementProps = {}; // FIXME
+type ImgElementProps = React.ImgHTMLAttributes<HTMLImageElement>
 
 interface ImageProps extends ImgElementProps {}
 
-export default function Image(props: ImageProps): JSX.Element {
+export default function Image (props: ImageProps): JSX.Element {
   return (
     <img
       {...props}
@@ -15,5 +15,5 @@ export default function Image(props: ImageProps): JSX.Element {
         max-width: 100%;
       `}
     />
-  );
+  )
 }
