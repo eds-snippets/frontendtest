@@ -32,21 +32,10 @@ function App () {
       <Image
         src='https://apod.nasa.gov/apod/image/2206/CygWideHa-OIIIBiColorImage2_crop2_1024.jpg'
         alt='Image 2'
-        threshold={0.9}
-        loadingIcon={
-          <div
-            css={css`
-              height: 20px;
-              width: 20px;
-              background-color: red;
-            `}
-          ></div>
-        }
       />
 
       <Image
         src='https://apod.nasa.gov/apod/image/2206/Ngc6188_Robertson_2000.jpg'
-        threshold={0.1}
         alt='Image 3'
       />
 

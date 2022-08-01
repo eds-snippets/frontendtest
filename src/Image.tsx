@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /** @jsxImportSource @emotion/react */
 
-import { css } from '@emotion/react'
+import { css, keyframes } from '@emotion/react'
 import { RefObject, useEffect, useMemo, useRef, useState } from 'react'
 import Spinner from './Spinner'
 
@@ -56,6 +56,17 @@ export default function Image (props: ImageProps): JSX.Element {
     align-items: center;
   `
 
+  // since we use fade-in effect once, I have chosen animation with keyframes and did not
+  // use transition, which would be used if we would need retrigger fade-out
+  const fadeIn = keyframes`
+    from {
+      opacity: 0;
+    }
+    top {
+      opacity: 1;
+    }  
+  `
+
   // we show image always after it is loaded, no matter if it disappears from the screen
   return (
     <figure
@@ -75,6 +86,7 @@ export default function Image (props: ImageProps): JSX.Element {
             width: 100%;
             height: 80vh;
             object-fit: cover;
+            animation: ${fadeIn} 1s;
           `}
         />
       )}
