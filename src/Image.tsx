@@ -44,6 +44,10 @@ export default function Image (props: ImageProps): JSX.Element {
   const ref = useRef(null)
   const [showImage] = useShowImage(ref, props.threshold)
   const [isImgLoading, setIsImgLoading] = useState(true)
+  // I did not think about the situation, when user assigns height and/or width
+  // to the Image component, so I do quick fix here in Part 5
+  const height = props.height ? props.height : '80vh'
+  const width = props.width ? props.width : '100%'
   // spinnerWrapper - is used with position absolute to stop flickering when image appears
   const spinnerWrapper = css`
     position: absolute;
@@ -72,7 +76,8 @@ export default function Image (props: ImageProps): JSX.Element {
     <figure
       ref={ref}
       css={css`
-        height: 80vh;
+        height: ${height};
+        width: ${width};
         margin-bottom: 10px;
         background-color: lightgrey;
         position: relative;
@@ -84,7 +89,7 @@ export default function Image (props: ImageProps): JSX.Element {
           onLoad={() => setIsImgLoading(false)}
           css={css`
             width: 100%;
-            height: 80vh;
+            height: 100%;
             object-fit: cover;
             animation: ${fadeIn} 1s;
           `}
